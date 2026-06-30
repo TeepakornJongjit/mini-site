@@ -1,0 +1,87 @@
+body {
+font-family: sans-serif;
+margin: 0;
+padding: 0;
+}
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 5%;
+background: #1a1a3d;
+color: white;
+}
+header nav a {
+color: white;
+margin: 0 10px;
+text-decoration: none;
+}
+.hero {
+background: #eaf2fb;
+text-align: center;
+padding: 60px 20px;
+}
+.cta-button {
+display: inline-block;
+background: #2563eb;
+color: white;
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+margin-top: 10px;
+}
+.content-wrapper {
+display: flex;
+gap: 30px;
+padding: 40px 5%;
+}
+main {
+flex: 3;
+display: flex;
+gap: 20px;
+}
+.card {
+flex: 1;
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 15px;
+}
+aside {
+flex: 1;
+background: #f5f5f5;
+padding: 15px;
+border-radius: 8px;
+}
+footer {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+background: #1a1a3d;
+color: white;
+padding: 30px 5%;
+}
+.footer-col {
+flex: 1;
+min-width: 180px;
+}
+.copyright {
+width: 100%;
+text-align: center;
+margin-top: 20px;
+font-size: 0.85em;}
+
+.back-to-top{
+display: none;
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #2563eb;
+color: white;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+text-decoration: none;
+}
+
