@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WU Canteen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">WU Canteen</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i>
+                            Home</a></li>
+                    <button id="open-drawer-desktop"
+                        class="open-drawer-btn text-gray-600 hover:text-gray-800 focus:outline-none flexitems-center gap-2"
+                        aria-haspopup="true" aria-controls="drawer" aria-expanded="false">
+                        <i class="fas fa-bars"></i><span class="font-medium">Menu</span>
+                    </button>
+                    <li><a href="About.html" class="text-gray-600 hover:text-gray-800"><i
+                                class="fas fa-info-circle"></i>
+                            About</a></li>
+                    <li><a href="Contact.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+                <!-- Mobile menu button: shown below md, hidden from md up -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none"
+                        aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+        </div>
+        <!-- Mobile menu panel: starts hidden, toggled by the button above -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i>
+                        Home</a></li>
+
+                <button id="open-drawer-mobile"
+                    class="open-drawer-btn block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none"><i
+                        class="fas fa-bars"></i> Menu</button>
+
+                <li><a href="About.html" class="block text-gray-600 hover:text-gray-800"><i
+                            class="fas fa-info-circle"></i>
+                        About</a></li>
+                <li><a href="Contact.html" class="block text-gray-600 hover:text-gray-800"><i
+                            class="fas fa-envelope"></i>
+                        Contact</a></li>
+            </ul>
+        </nav>
+        <div id="drawer-backdrop"
+            class="fixed inset-0 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        </div>
+        <aside id="drawer" role="dialog" aria-modal="true" aria-label="Site menu"
+            class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+            <div class="flex items-center justify-between px-4 py-4 border-b">
+                <span class="font-bold text-gray-800">Menu</span>
+                <button id="close-drawer" class="text-gray-500 hover:text-gray-800 focus:outline-none"
+                    aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <nav aria-label="Drawer navigation">
+                <ul class="py-2">
+                    <li>
+                        <a href="ThaiClassics.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-house w-5"></i> Thai Classics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ExclusiveSpecials.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-utensils w-5"></i> Exclusive Specials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DessertDelights.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-star w-5"></i> Dessert Delights
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DrinksBeverages.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope w-5"></i> Drinks & Beverages
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-1">
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-3">Become a WU Canteen Vendor</h2>
+            <p class="text-gray-600 mb-3">Run a food shop and want a stall at WU Canteen? Tell us about your business
+                below.</p>
+        </div>
+        <!-- Alert/Banner: a persistent, non-blocking system status notice -->
+        <div class="mb-6 rounded-lg border border-purple-300 bg-purple-100 text-purple-800 px-4 py-3 text-sm flex items-start
+gap-2">
+            <i class="fa-solid fa-circle-info mt-0.5"></i>
+            <p>
+                <span class="font-semibold">Now accepting Spring 2026 vendor applications.</span>
+                Submissions for other intakes will be held until the next review cycle.
+            </p>
+        </div>
+
+        <form id="vendor-form" class="bg-white rounded-lg shadow p-6 sm:p-8 space-y-10" novalidate>
+            <fieldset class="space-y-4">
+                <legend class="text-lg font-semibold text-gray-800 mb-2">Shop &amp; Contact Information</legend>
+                <div>
+                    <label for="shopName" class="block text-sm font-medium text-gray-700 mb-1">Shop name</label>
+                    <input type="text" id="shopName" name="shopName" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500" />
+
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="you@example.com" />
+                    </div>
+                    <div>
+                        <label for="shopPhone" class="block text-sm font-medium text-gray-700 mb-1">Shop phone</label>
+                        <input type="tel" id="shopPhone" name="shopPhone" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="000-000-0000" maxlength="12" pattern="\d{3}-\d{3}-\d{4}" />
+
+                    </div>
+                </div>
+                <div>
+                    <label for="about" class="block text-sm font-medium text-gray-700 mb-1">Tell us about your
+                        shop</label>
+                    <textarea id="about" name="about" rows="3" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="What makes your food special?"></textarea>
+
+                </div>
+            </fieldset>
+            <hr class="border-gray-300 mb-4" />
+            <!-- ============ Owner Information ============ -->
+            <fieldset class="space-y-4">
+                <legend class="text-lg font-semibold text-gray-800 mb-2">Owner Information</legend>
+                <div class="grid grid-cols-1 sm:grid-cols-8 gap-4">
+                    <div class="sm:col-span-1">
+                        <label for="ownerTitle" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                        <select id="ownerTitle" name="ownerTitle" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500">
+
+                            <option value="">Select...</option>
+                            <option value="mr">Mr.</option>
+                            <option value="mrs">Mrs.</option>
+                            <option value="ms">Ms.</option>
+                        </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="ownerFirstName" class="block text-sm font-medium text-gray-700 mb-1">First
+                            name</label>
+                        <input type="text" id="ownerFirstName" name="ownerFirstName" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" />
+
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="ownerLastName" class="block text-sm font-medium text-gray-700 mb-1">Last
+                            name</label>
+                        <input type="text" id="ownerLastName" name="ownerLastName" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" />
+
+                    </div>
+                    <div class="sm:col-span-3">
+                        <span class="block text-sm font-medium text-gray-700 mb-1">Date of birth</span>
+                        <div class="grid grid-cols-3 gap-3 max-w-md">
+                            <select id="dobDay" name="dobDay" required aria-label="Day" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500">
+                                <option value="">Day</option>
+                            </select>
+                            <select id="dobMonth" name="dobMonth" required aria-label="Month" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500">
+                                <option value="">Month</option>
+                            </select>
+                            <select id="dobYear" name="dobYear" required aria-label="Year" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500">
+                                <option value="">Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> <!-- ปิด grid เดิม (Title/First/Last/DOB) -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <label for="MobileNumber" class="block text-sm font-medium text-gray-700 mb-1">Mobile
+                            Number</label>
+                        <input type="tel" id="MobileNumber" name="MobileNumber" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="000-000-0000" maxlength="12" pattern="\d{3}-\d{3}-\d{4}" />
+                    </div>
+                    <div>
+                        <label for="ownerPhone" class="block text-sm font-medium text-gray-700 mb-1">Owner ID</label>
+                        <input type="tel" id="ownerPhone" name="ownerPhone" class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="0-0000-00000-00-0" maxlength="18"
+                            pattern="\d{1}-\d{4}-\d{5}-\d{2}-\d{1}" />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset sm:grid-cols-8 gap-2 mt-4>
+                <legend class="text-lg font-semibold text-gray-800 mb-2">Address</legend>
+                <div class="grid grid-cols-1 sm:grid-cols-8 gap-4">
+                    <div class="sm:col-span-3">
+                        <label for="HouseNumber" class="block text-sm font-medium text-gray-700 mb-1">House
+                            number</label>
+                        <input type="text" id="HouseNumber" name="HouseNumber" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500" placeholder="e.g., 123 or 12/3" />
+
+                    </div>
+                    <div class="sm:col-span-3">
+                        <label for="Street" class="block text-sm font-medium text-gray-700 mb-1">Street</label>
+                        <input type="text" id="Street" name="Street" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="e.g., Walailak University Road" />
+
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="Village" class="block text-sm font-medium text-gray-700 mb-1">Village</label>
+                        <input type="text" id="Village" name="Village" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="e.g., Thai Buri" />
+
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-8 gap-4">
+                    <div class="sm:col-span-3">
+                        <label for="City" class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                        <input type="text" id="City" name="City" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2
+
+focus:ring-gray-500 focus:border-gray-500" placeholder="e.g., Tha Sala" />
+
+                    </div>
+                    <div class="sm:col-span-3">
+                        <label for="Province" class="block text-sm font-medium text-gray-700 mb-1">Province</label>
+                        <input type="text" id="Province" name="Province" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="e.g., Nakhon Si Thammarat" />
+
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="PostalCode" class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                        <input type="text" id="PostalCode" name="PostalCode" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500" placeholder="00000" maxlength="5" />
+
+                    </div>
+                </div>
+
+            </fieldset>
+            </div>
+            </div>
+            </div>
+            </fieldset>
+            <hr class="border-gray-300 mb-4" />
+            <!-- ============ Menu & Category ============ -->
+            <fieldset>
+                <legend class="text-lg font-semibold text-gray-800 mb-2">
+                    Menu &amp; Category
+                </legend>
+                <div class="grid grid-cols-1 sm:grid-cols-7 gap-4">
+                    <div class="sm:col-span-2">
+                        <label for="cuisine" class="block text-sm font-medium text-gray-700 mb-1">Primary cuisine
+                            type</label>
+                        <!-- Select: one choice from MANY options — a dropdown keeps this compact instead of listing 9 radio buttons. -->
+                        <select id="cuisine" name="cuisine" required class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-
+gray-500 focus:border-gray-500">
+
+                            <option value="">Select a type</option>
+                            <option value="thai">Thai</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="korean">Korean</option>
+                            <option value="western">Western</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <!-- ============ Checkbox ============ -->
+                    <div class="sm:col-span-5">
+                        <span class="block text-sm font-medium text-gray-700 mb-2">Which WU Canteen categories would you
+                            like to join?</span>
+                        <!-- Checkbox: MULTIPLE independent selections. -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2">
+                            <label class="flex items-center gap-2 text-sm text-gray-700">
+                                <input type="checkbox" name="categories" value="thai-classics"
+                                    class="rounded border-gray-300 text-gray-600 focus:ring-gray-500" />Thai
+                                Classics</label>
+                            <label class="flex items-center gap-2 text-sm text-gray-700">
+                                <input type="checkbox" name="categories" value="exclusive-specials"
+                                    class="rounded border-gray-300 text-gray-600 focus:ring-gray-500" />Exclusive
+                                Specials</label>
+                            <label class="flex items-center gap-2 text-sm text-gray-700">
+                                <input type="checkbox" name="categories" value="dessert-delights"
+                                    class="rounded border-gray-300 text-gray-600 focus:ring-gray-500" />Dessert
+                                Delights</label>
+                            <label class="flex items-center gap-2 text-sm text-gray-700">
+                                <input type="checkbox" name="categories" value="drinks-beverages"
+                                    class="rounded border-gray-300 text-gray-600 focus:ring-gray-500" />Drinks &amp;
+                                Beverages</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="text-lg font-semibold text-gray-800 mb-2">Stall Preferences</legend>
+                <div class="mb-6">
+                    <span class="block text-sm font-medium text-gray-700 mb-2">Preferred stall size</span>
+                    <!-- Radio: EXACTLY ONE choice from a small, fixed set -->
+                    <div class="flex flex-wrap gap-6">
+                        <label class="flex items-center gap-2 text-sm text-gray-700">
+                            <input type="radio" name="stallSize" value="small" required
+                                class="text-gray-600 focus:ring-gray-500" />Small
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-gray-700">
+                            <input type="radio" name="stallSize" value="medium"
+                                class="text-gray-600 focus:ring-gray-500" />Medium
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-gray-700">
+                            <input type="radio" name="stallSize" value="large"
+                                class="text-gray-600 focus:ring-gray-500" />Large
+                        </label>
+                    </div>
+                </div>
+                <!-- ============ Switch ============ -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-700">Halal certified</p>
+                    </div>
+                    <!-- Switch, built as a real <button role="switch"> -->
+                    <button type="button" id="halal-switch" role="switch" aria-checked="false"
+                        aria-label="Halal certified" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 transition-colors focus:outline-none
+
+focus:ring-2 focus:ring-gray-500 focus:ring-offset-1">
+
+                        <span id="halal-switch-thumb" class="inline-block h-4 w-4 translate-x-1 transform rounded-full bg-white transition-
+transform"></span>
+
+                    </button>
+                    <input type="checkbox" name="halalCertified" id="halalCertifiedInput" class="hidden" />
+                </div>
+
+                <div class="flex items-center justify-between mt-4">
+                    <div>
+                        <p class="text-sm font-medium text-gray-700">Vegetarian certified</p>
+                    </div>
+                    <!-- Switch, built as a real <button role="switch"> -->
+                    <button type="button" id="vegetarian-switch" role="switch" aria-checked="false"
+                        aria-label="Vegetarian certified" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 transition-colors focus:outline-none
+
+focus:ring-2 focus:ring-gray-500 focus:ring-offset-1">
+
+                        <span id="vegetarian-switch-thumb" class="inline-block h-4 w-4 translate-x-1 transform rounded-full bg-white transition-
+transform"></span>
+
+                    </button>
+                    <input type="checkbox" name="vegetarianCertified" id="vegetarianCertifiedInput" class="hidden" />
+                </div>
+            </fieldset>
+            <hr class="border-gray-300 mb-4" />
+            <!-- ============ Button ============ -->
+            <div class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+                <button type="reset" id="clear-form" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium
+
+hover:bg-gray-50">
+                    Clear Form
+                </button>
+                <button type="submit"
+                    class="px-5 py-2.5 rounded-lg bg-gray-500 hover:bg-gray-600 text-white font-semibold">
+                    <i class="fas fa-paper-plane mr-1"></i> Submit Application
+                </button>
+            </div>
+        </form>
+        </div>
+    </main>
+    <!-- Dialog/Modal — the opposite end of the spectrum from the Toast -->
+    <div id="confirm-backdrop"
+        class="fixed inset-0 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+    <div id="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-dialog-title" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity
+duration-300">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+            <h3 id="confirm-dialog-title" class="text-lg font-semibold text-gray-800 mb-2">Confirm submission</h3>
+            <p class="text-sm text-gray-600 mb-5">Are you sure you want to submit your application? You won't be able to
+                edit
+                it afterward.</p>
+            <div id="confirm-dialog-actions" class="flex justify-end gap-3">
+                <button type="button" id="confirm-cancel"
+                    class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50">
+                    Cancel
+                </button>
+                <button type="button" id="confirm-submit"
+                    class="px-4 py-2 rounded-lg bg-gray-500 hover:bg-gray-600 text-white font-semibold">
+                    Confirm &amp; Submit
+                </button>
+            </div>
+            <!-- Spinner — INDETERMINATE and SHORT. -->
+            <div id="confirm-spinner" class="hidden items-center gap-3 text-sm text-gray-600 mb-5">
+                <svg class="animate-spin h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                </svg>
+            </div>
+            <!-- Progress Bar — DETERMINATE and LONGER (>2s). -->
+            <div id="confirm-progress-wrap" class="hidden mb-5">
+                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                    <span>Uploading application...</span>
+                    <span id="confirm-progress-percent">0%</span>
+                </div>
+                <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="confirm-progress-bar" class="h-full bg-gray-500 transition-all duration-150"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Snackbar/Toast — the LOW-priority counterpart to the Alert/Banner above. -->
+                    <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 max-w-sm translate-y-4 opacity-0 pointer-events-none transition-all duration-300
+rounded-lg bg-gray-900 text-white px-4 py-3 shadow-lg flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-green-400"></i>
+                        <span id="toast-message" class="text-sm">Application submitted successfully!</span>
+                        <button type="button" id="toast-close" class="ml-2 text-gray-400 hover:text-white" aria-label="Dismiss
+notification">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>n...
+    </div>
+    
+    <footer style="background-color: #0a0a0a; color: #ffffff; text-align: center; padding: 40px 20px;">
+        <div class="footer-col">
+            <h6>&copy; 2026 WU Canteen. All rights reserved.</h6>
+        </div>
+        <p class="copyright">ระบบสั่งอาหารออนไลน์สำหรับนักศึกษาและบุคลากร มหาวิทยาลัยวลัยลักษณ์</p>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const menuIcon = document.getElementById("mobile-menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuButton.addEventListener("click", () => {
+            const isOpen = !mobileMenu.classList.contains("hidden");
+            mobileMenu.classList.toggle("hidden");
+            menuIcon.classList.toggle("fa-bars", isOpen);
+            menuIcon.classList.toggle("fa-xmark", !isOpen);
+            menuButton.setAttribute("aria-expanded", String(!isOpen));
+        });
+        // Drawer functionality
+        const openButtons = document.querySelectorAll(".open-drawer-btn");
+        const closeButton = document.getElementById("close-drawer");
+        const drawer = document.getElementById("drawer");
+        const backdrop = document.getElementById("drawer-backdrop");
+        function openDrawer() {
+            drawer.classList.remove("-translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+            closeButton.focus();
+            if (!mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+                menuIcon.classList.add("fa-bars");
+                menuIcon.classList.remove("fa-xmark");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+        }
+        function closeDrawer() {
+            drawer.classList.add("-translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+            openButtons[0].focus();
+        }
+        openButtons.forEach((btn) => btn.addEventListener("click", openDrawer));
+        closeButton.addEventListener("click", closeDrawer);
+        backdrop.addEventListener("click", closeDrawer);
+        // Escape key closes the drawer, same as clicking the backdrop
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDrawer();
+        });
+    </script>
+</body>
+<script src="script.js"></script>
+
+</html>

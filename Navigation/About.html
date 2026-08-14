@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WU Canteen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">WU Canteen</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i> Home</a></li>
+                    <button id="open-drawer-desktop"
+                        class="open-drawer-btn text-gray-600 hover:text-gray-800 focus:outline-none flexitems-center gap-2"
+                        aria-haspopup="true" aria-controls="drawer" aria-expanded="false">
+                        <i class="fas fa-bars"></i><span class="font-medium">Menu</span>
+                    </button>
+                    <li><a href="About.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                            About</a></li>
+                    <li><a href="Contact.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+                <!-- Mobile menu button: shown below md, hidden from md up -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none"
+                        aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+        </div>
+        <!-- Mobile menu panel: starts hidden, toggled by the button above -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i>
+                        Home</a></li>
+
+                <button id="open-drawer-mobile"
+                    class="open-drawer-btn block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none"><i
+                        class="fas fa-bars"></i> Menu</button>
+
+                <li><a href="About.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                        About</a></li>
+                <li><a href="Contact.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                        Contact</a></li>
+            </ul>
+        </nav>
+        <div id="drawer-backdrop"
+            class="fixed inset-0 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        </div>
+        <aside id="drawer" role="dialog" aria-modal="true" aria-label="Site menu"
+            class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+            <div class="flex items-center justify-between px-4 py-4 border-b">
+                <span class="font-bold text-gray-800">Menu</span>
+                <button id="close-drawer" class="text-gray-500 hover:text-gray-800 focus:outline-none"
+                    aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <nav aria-label="Drawer navigation">
+                <ul class="py-2">
+                    <li>
+                        <a href="ThaiClassics.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-house w-5"></i> Thai Classics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ExclusiveSpecials.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-utensils w-5"></i> Exclusive Specials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DessertDelights.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-star w-5"></i> Dessert Delights
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DrinksBeverages.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope w-5"></i> Drinks & Beverages
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-1">
+        <div class="container mx-auto px-4 py-10 max-w-5xl">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">About WU Canteen</h2>
+            <p class="text-gray-600 mb-8">
+                WU Canteen serves the Walailak University community with fresh, affordable meals every day.
+                Find our location, hours, and everything else you need to know below.
+            </p>
+            <div id="about-accordion" class="bg-white rounded-lg shadow divide-y divide-gray-100">
+                <details open>
+                    <summary
+                        class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer font-semibold text-gray-800">
+                        <span><i class="fa-solid fa-location-dot text-orange-500 w-5"></i> Address</span>
+                        <i class="fa-solid fa-chevron-down accordion-chevron text-gray-400 text-sm"></i>
+                    </summary>
+                    <div class="px-5 pb-5 text-sm text-gray-600 space-y-1">
+                        <p class="font-medium text-gray-800">WU Canteen</p>
+                        <p>Walailak University</p>
+                        <p>222 Thaiburi, Tha Sala District, Nakhon Si Thammarat 80160, Thailand</p>
+                        <p class="pt-1">
+                            <i class="fa-solid fa-phone text-gray-400 w-4"></i> +66 (0)75 xxx xxx
+                        </p>
+                    </div>
+                </details>
+                <details>
+                    <summary
+                        class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer font-semibold text-gray-800">
+                        <span><i class="fa-solid fa-map-location-dot text-orange-500 w-5"></i> Map</span>
+                        <i class="fa-solid fa-chevron-down accordion-chevron text-gray-400 text-sm"></i>
+                    </summary>
+                    <div class="px-5 pb-5">
+                        <iframe title="Map showing Walailak University"
+                            src="https://www.google.com/maps?q=Walailak+University,+Nakhon+Si+Thammarat,+Thailand&output=embed"
+                            class="w-full h-64 rounded-md border-0" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </details>
+                <details>
+                    <summary
+                        class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer font-semibold text-gray-800">
+                        <span><i class="fa-solid fa-circle-info text-orange-500 w-5"></i> Special Information</span>
+                        <i class="fa-solid fa-chevron-down accordion-chevron text-gray-400 text-sm"></i>
+                    </summary>
+                    <div class="px-5 pb-5 text-sm text-gray-600">
+                        <ul class="space-y-2">
+                            <li><i class="fa-solid fa-clock text-gray-400 w-4"></i> Mon–Fri: 07:00–19:00 &nbsp;|&nbsp;
+                                Sat–Sun: 08:00–
+
+                                15:00</li>
+
+                            <li><i class="fa-solid fa-wallet text-gray-400 w-4"></i> Cash, PromptPay QR, and campus card
+                                accepted</li>
+                            <li><i class="fa-solid fa-check-circle text-gray-400 w-4"></i> Halal-certified stalls
+                                available — look for the
+
+                                badge on the menu pages</li>
+
+                            <li><i class="fa-solid fa-leaf text-gray-400 w-4"></i> Bring your own container for a small
+                                discount</li>
+                            <li><i class="fa-solid fa-triangle-exclamation text-gray-400 w-4"></i> Allergen information
+                                available on
+
+                                request at each stall</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <footer style="background-color: #0a0a0a; color: #ffffff; text-align: center; padding: 40px 20px;">
+        <div class="footer-col">
+            <h6>WU Canteen</h6>
+            <p>ระบบสั่งอาหารออนไลน์สำหรับนักศึกษาและบุคลากร มหาวิทยาลัยวลัยลักษณ์</p>
+        </div>
+        <p class="copyright">&copy; 2026 WU Canteen. All rights reserved.</p>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const menuIcon = document.getElementById("mobile-menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuButton.addEventListener("click", () => {
+            const isOpen = !mobileMenu.classList.contains("hidden");
+            mobileMenu.classList.toggle("hidden");
+            menuIcon.classList.toggle("fa-bars", isOpen);
+            menuIcon.classList.toggle("fa-xmark", !isOpen);
+            menuButton.setAttribute("aria-expanded", String(!isOpen));
+        });
+        // Drawer functionality
+        const openButtons = document.querySelectorAll(".open-drawer-btn");
+        const closeButton = document.getElementById("close-drawer");
+        const drawer = document.getElementById("drawer");
+        const backdrop = document.getElementById("drawer-backdrop");
+        function openDrawer() {
+            drawer.classList.remove("-translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+            closeButton.focus();
+            if (!mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+                menuIcon.classList.add("fa-bars");
+                menuIcon.classList.remove("fa-xmark");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+        }
+        function closeDrawer() {
+            drawer.classList.add("-translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+            openButtons[0].focus();
+        }
+        openButtons.forEach((btn) => btn.addEventListener("click", openDrawer));
+        closeButton.addEventListener("click", closeDrawer);
+        backdrop.addEventListener("click", closeDrawer);
+        // Escape key closes the drawer, same as clicking the backdrop
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDrawer();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WU Canteen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">WU Canteen</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i> Home</a></li>
+                    <button id="open-drawer-desktop"
+                        class="open-drawer-btn text-gray-600 hover:text-gray-800 focus:outline-none flexitems-center gap-2"
+                        aria-haspopup="true" aria-controls="drawer" aria-expanded="false">
+                        <i class="fas fa-bars"></i><span class="font-medium">Menu</span>
+                    </button>
+                    <li><a href="About.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                            About</a></li>
+                    <li><a href="Contact.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+                <!-- Mobile menu button: shown below md, hidden from md up -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none"
+                        aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+        </div>
+        <!-- Mobile menu panel: starts hidden, toggled by the button above -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i>
+                        Home</a></li>
+
+                <button id="open-drawer-mobile"
+                    class="open-drawer-btn block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none"><i
+                        class="fas fa-bars"></i> Menu</button>
+
+                <li><a href="#" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                        About</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                        Contact</a></li>
+            </ul>
+        </nav>
+        <div id="drawer-backdrop"
+            class="fixed inset-0 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        </div>
+        <aside id="drawer" role="dialog" aria-modal="true" aria-label="Site menu"
+            class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+            <div class="flex items-center justify-between px-4 py-4 border-b">
+                <span class="font-bold text-gray-800">Menu</span>
+                <button id="close-drawer" class="text-gray-500 hover:text-gray-800 focus:outline-none"
+                    aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <nav aria-label="Drawer navigation">
+                <ul class="py-2">
+                    <li>
+                        <a href="ThaiClassics.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-house w-5"></i> Thai Classics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ExclusiveSpecials.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-utensils w-5"></i> Exclusive Specials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DessertDelights.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-star w-5"></i> Dessert Delights
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DrinksBeverages.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope w-5"></i> Drinks & Beverages
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+    <main class="container mx-auto px-4 py-8 max-w-3xl flex-1">
+        <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center flex-wrap text-sm text-gray-500">
+                <li class="flex items-center">
+                    <a href="index.html" class="hover:text-gray-800 hover:underline">
+                        <i class="fas fa-house mr-1"></i>Home
+                    </a>
+                    <i class="fas fa-chevron-right mx-2 text-xs text-gray-400"></i>
+                </li>
+                <li class="flex items-center">
+                    <a href="menu.html" class="hover:text-gray-800 hover:underline">Menu</a>
+                    <i class="fas fa-chevron-right mx-2 text-xs text-gray-400"></i>
+                </li>
+                <li aria-current="page" class="font-medium text-gray-800 truncate">
+                    <a href="DrinksBeverages.html" class="hover:text-gray-800 hover:underline">Drinks & Beverages</a>
+                    <i class="fas fa-chevron-right mx-2 text-xs text-gray-400"></i>
+                </li>
+            </ol>
+        </nav>
+        <div class="bg-white rounded-lg shadow p-6">
+            <h1 class="text-2xl font-bold text-gray-800">Drinks & Beverages</h1>
+            <p class="text-gray-600 mb-8">
+                Refreshing drinks and beverages to complement your meal.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-36 bg-gray-200 flex items-center justify-center text-gray-400">
+                        <img src="images/thai-iced-tea.jpg" alt="Thai Iced Tea"
+                            class="object-cover h-full w-full" />
+                    </div>
+
+                    <div class="p-4">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-semibold text-gray-800">Thai Iced Tea</h3>
+                            <span class="font-semibold text-orange-600 whitespace-nowrap">฿35</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                sweet so much</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">A refreshing blend of black tea, sugar, and milk, served over ice.</p>
+                        <ul class="text-xs text-gray-400 mt-2 list-disc list-inside space-y-0.5">
+                            <li>Black tea</li>
+                            <li>Sugar</li>
+                            <li>Milk</li>
+                        </ul>
+                        <div class="flex items-center gap-2 mt-3 pt-3 border-t">
+
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-green-500 text-black text-xs font-
+semibold">TH</span>
+
+                            <span class="text-xs text-gray-500">Recommended by Chef Ilham</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-36 bg-gray-200 flex items-center justify-center text-gray-400">
+                        <img src="images/tala-cocoa.jpg" alt="Tala Cocoa"
+                            class="object-cover h-full w-full" />
+                    </div>
+
+                    <div class="p-4">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-semibold text-gray-800">Tala Cocoa</h3>
+                            <span class="font-semibold text-orange-600 whitespace-nowrap">฿40</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                sweet</span>
+                            <span
+                                class="text-xs font-medium px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">It contains coconut milk.</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">A rich and creamy cocoa drink with a hint of spice, served hot.</p>
+                        <ul class="text-xs text-gray-400 mt-2 list-disc list-inside space-y-0.5">
+                            <li>Cocoa powder</li>
+                            <li>Coconut curry paste</li>
+                            <li>coconut milk</li>
+                        </ul>
+                        <div class="flex items-center gap-2 mt-3 pt-3 border-t">
+
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-green-500 text-black text-xs font-
+semibold">IH</span>
+
+                            <span class="text-xs text-gray-500">Recommended by Chef Teepakorn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-36 bg-gray-200 flex items-center justify-center text-gray-400">
+                        <img src="images/kek-hauy.jpg" alt="Kek Hauy"
+                            class="object-cover h-full w-full" />
+                    </div>
+
+                    <div class="p-4">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="font-semibold text-gray-800">Kek Hauy</h3>
+                            <span class="font-semibold text-orange-600 whitespace-nowrap">฿45</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                sweet</span>
+                            <span
+                                class="text-xs font-medium px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">It contains coconut milk.</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Massaman curry with tender beef, aromatic spices, and coconut milk, served with rice.</p>
+                        <ul class="text-xs text-gray-400 mt-2 list-disc list-inside space-y-0.5">
+                            <li>Beef</li>
+                            <li>Coconut curry paste</li>
+                            <li>coconut milk</li>
+                        </ul>
+                        <div class="flex items-center gap-2 mt-3 pt-3 border-t">
+
+                            <span class="flex items-center justify-center w-7 h-7 rounded-full bg-green-500 text-black text-xs font-
+semibold">IH</span>
+
+                            <span class="text-xs text-gray-500">Recommended by Chef Mommyn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Nutrition at a Glance</h3>
+                <div class="bg-white rounded-lg shadow overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-500 uppercase text-xs">
+                            <tr>
+                                <th class="px-4 py-3">Dish</th>
+                                <th class="px-4 py-3">Calories</th>
+                                <th class="px-4 py-3">Allergens</th>
+                                <th class="px-4 py-3">Spice Level</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 text-orange-600
+
+shrink-0">
+
+                                            <i class="fas fa-utensils text-xs"></i>
+                                        </span>
+                                        <span class="font-medium">Pad Kra Pao Kai</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3">620 kcal</td>
+                                <td class="px-4 py-3">Egg</td>
+                                <td class="px-4 py-3">
+                                    <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                        Spicy</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 text-orange-600
+
+shrink-0">
+
+                                            <i class="fas fa-utensils text-xs"></i>
+                                        </span>
+                                        <span class="font-medium">Green Curry Chicken</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3">800 kcal</td>
+                                <td class="px-4 py-3">Chicken</td>
+                                <td class="px-4 py-3">
+                                    <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                        Spicy</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 text-orange-600
+
+shrink-0">
+
+                                            <i class="fas fa-utensils text-xs"></i>
+                                        </span>
+                                        <span class="font-medium">Massaman Curry</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3">1000 kcal</td>
+                                <td class="px-4 py-3">Beef</td>
+                                <td class="px-4 py-3">
+                                    <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+                                        Spicy</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <footer style="background-color: #0a0a0a; color: #ffffff; text-align: center; padding: 40px 20px;">
+        <div class="footer-col">
+            <h6>WU Canteen</h6>
+            <p>ระบบสั่งอาหารออนไลน์สำหรับนักศึกษาและบุคลากร มหาวิทยาลัยวลัยลักษณ์</p>
+        </div>
+        <p class="copyright">&copy; 2026 WU Canteen. All rights reserved.</p>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const menuIcon = document.getElementById("mobile-menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuButton.addEventListener("click", () => {
+            const isOpen = !mobileMenu.classList.contains("hidden");
+            mobileMenu.classList.toggle("hidden");
+            menuIcon.classList.toggle("fa-bars", isOpen);
+            menuIcon.classList.toggle("fa-xmark", !isOpen);
+            menuButton.setAttribute("aria-expanded", String(!isOpen));
+        });
+        // Drawer functionality
+        const openButtons = document.querySelectorAll(".open-drawer-btn");
+        const closeButton = document.getElementById("close-drawer");
+        const drawer = document.getElementById("drawer");
+        const backdrop = document.getElementById("drawer-backdrop");
+        function openDrawer() {
+            drawer.classList.remove("-translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+            closeButton.focus();
+            if (!mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+                menuIcon.classList.add("fa-bars");
+                menuIcon.classList.remove("fa-xmark");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+        }
+        function closeDrawer() {
+            drawer.classList.add("-translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+            openButtons[0].focus();
+        }
+        openButtons.forEach((btn) => btn.addEventListener("click", openDrawer));
+        closeButton.addEventListener("click", closeDrawer);
+        backdrop.addEventListener("click", closeDrawer);
+        // Escape key closes the drawer, same as clicking the backdrop
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDrawer();
+        });
+    </script>
+</body>
+
+</html>

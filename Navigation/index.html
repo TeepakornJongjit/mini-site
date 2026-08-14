@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WU Canteen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">WU Canteen</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i> Home</a></li>
+                    <button id="open-drawer-desktop"
+                        class="open-drawer-btn text-gray-600 hover:text-gray-800 focus:outline-none flexitems-center gap-2"
+                        aria-haspopup="true" aria-controls="drawer" aria-expanded="false">
+                        <i class="fas fa-bars"></i><span class="font-medium">Menu</span>
+                    </button>
+                    <li><a href="About.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                            About</a></li>
+                    <li><a href="Contact.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                            Contact</a></li>
+                </ul>
+                <!-- Mobile menu button: shown below md, hidden from md up -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none"
+                        aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <i class="fas fa-bars" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+        </div>
+        <!-- Mobile menu panel: starts hidden, toggled by the button above -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="index.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-home"></i>
+                        Home</a></li>
+
+                <button id="open-drawer-mobile"
+                    class="open-drawer-btn block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100 focus:outline-none"><i
+                        class="fas fa-bars"></i> Menu</button>
+
+                <li><a href="About.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-info-circle"></i>
+                        About</a></li>
+                <li><a href="Contact.html" class="block text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i>
+                        Contact</a></li>
+            </ul>
+        </nav>
+        <div id="drawer-backdrop"
+            class="fixed inset-0 bg-black bg-opacity-50 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        </div>
+        <aside id="drawer" role="dialog" aria-modal="true" aria-label="Site menu"
+            class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+            <div class="flex items-center justify-between px-4 py-4 border-b">
+                <span class="font-bold text-gray-800">Menu</span>
+                <button id="close-drawer" class="text-gray-500 hover:text-gray-800 focus:outline-none"
+                    aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <nav aria-label="Drawer navigation">
+                <ul class="py-2">
+                    <li>
+                        <a href="ThaiClassics.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-house w-5"></i> Thai Classics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ExclusiveSpecials.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-utensils w-5"></i> Exclusive Specials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DessertDelights.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-star w-5"></i> Dessert Delights
+                        </a>
+                    </li>
+                    <li>
+                        <a href="DrinksBeverages.html"
+                            class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope w-5"></i> Drinks & Beverages
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </header>
+    <main class="container mx-auto px-4 py-12 max-w-5xl flex-1">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Welcome to WU Canteen</h2>
+                <p class="text-gray-600 max-w-md">
+                    Enjoy a variety of delicious Thai dishes and beverages in a cozy atmosphere.
+                    Browse our menu to find your favorite items or try something new!
+                </p>
+            </div>
+            <a href="Menu.html" class="shrink-0 inline-flex items-center justify-center gap-2 bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg
+
+shadow hover:bg-gray-700 transition-colors duration-300">
+                <i class="fas fa-bowl-food"></i> Explore Menu
+            </a>
+        </div>
+        <hr class="my-10 border-gray-200">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="flex items-start gap-4 bg-white rounded-lg shadow p-5">
+                <i class="fas fa-leaf text-2xl text-green-600"></i>
+                <div>
+                    <h3 class="font-semibold text-green-800">Fresh Thai Classics</h3>
+                    <p class="text-sm text-green-500 mt-1">Made daily with local ingredients.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 bg-white rounded-lg shadow p-5">
+                <i class="fas fa-clock text-2xl text-blue-600"></i>
+                <div>
+                    <h3 class="font-semibold text-blue-800">Quick Service</h3>
+                    <p class="text-sm text-blue-500 mt-1">Order and get your food in minutes.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4 bg-white rounded-lg shadow p-5">
+                <i class="fas fa-tag text-2xl text-orange-500"></i>
+                <div>
+                    <h3 class="font-semibold text-orange-800">Student-Friendly Prices</h3>
+                    <p class="text-sm text-orange-500 mt-1">Great meals that fit your budget.</p>
+                </div>
+            </div>
+        </div>
+        <hr class="my-10 border-gray-200">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Featured Shops</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                <div
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Ro-Bi-Da Kitchen (Halal)</h3>
+                        <p class="text-sm text-gray-600 mt-1">A popular spot for authentic Thai classics, known for
+                            their Pad Thai and Tom
+
+                            Yum soup.</p>
+
+                    </div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Tom Yum O-Cha Noodle</h3>
+                        <p class="text-sm text-gray-600 mt-1">Known for their delicious Tom Yum soup and fresh noodle
+                            dishes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer style="background-color: #0a0a0a; color: #ffffff; text-align: center; padding: 40px 20px;">
+        <div class="footer-col">
+            <h6>WU Canteen</h6>
+            <p>ระบบสั่งอาหารออนไลน์สำหรับนักศึกษาและบุคลากร มหาวิทยาลัยวลัยลักษณ์</p>
+        </div>
+        <p class="copyright">&copy; 2026 WU Canteen. All rights reserved.</p>
+    </footer>
+    <script>
+        const menuButton = document.getElementById("mobile-menu-button");
+        const menuIcon = document.getElementById("mobile-menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuButton.addEventListener("click", () => {
+            const isOpen = !mobileMenu.classList.contains("hidden");
+            mobileMenu.classList.toggle("hidden");
+            menuIcon.classList.toggle("fa-bars", isOpen);
+            menuIcon.classList.toggle("fa-xmark", !isOpen);
+            menuButton.setAttribute("aria-expanded", String(!isOpen));
+        });
+        // Drawer functionality
+        const openButtons = document.querySelectorAll(".open-drawer-btn");
+        const closeButton = document.getElementById("close-drawer");
+        const drawer = document.getElementById("drawer");
+        const backdrop = document.getElementById("drawer-backdrop");
+        function openDrawer() {
+            drawer.classList.remove("-translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+            closeButton.focus();
+            if (!mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+                menuIcon.classList.add("fa-bars");
+                menuIcon.classList.remove("fa-xmark");
+                menuButton.setAttribute("aria-expanded", "false");
+            }
+        }
+        function closeDrawer() {
+            drawer.classList.add("-translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            openButtons.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+            openButtons[0].focus();
+        }
+        openButtons.forEach((btn) => btn.addEventListener("click", openDrawer));
+        closeButton.addEventListener("click", closeDrawer);
+        backdrop.addEventListener("click", closeDrawer);
+        // Escape key closes the drawer, same as clicking the backdrop
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDrawer();
+        });
+    </script>
+</body>
+</html>
